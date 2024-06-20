@@ -1,6 +1,6 @@
 import express from "express";
 import jwt from "jsonwebtoken";
-import { StatusCodes, UserRolesEnum } from "../consts.js";
+import { StatusCodesEnum, UserRolesEnum } from "../consts.js";
 import config from "../config.js";
 
 const { JWT_KEY } = config;
@@ -34,7 +34,7 @@ export const checkIfAdminMiddleware = async (req, res, next) => {
 
   } catch (error) {
     console.error("checkIfAdminMiddleware", error);
-    return res.status(StatusCodes.accessDenied).send({ error: "Sorry, check your privileges" });
+    return res.status(StatusCodesEnum.accessDenied).send({ error: "Sorry, check your privileges" });
   }
 };
 
@@ -57,7 +57,7 @@ export const authUserMiddleware = async (req, res, next) => {
     next();
   } catch (error) {
     console.error("authMiddleware", error);
-    return res.status(StatusCodes.unauthorized).send({ error: "Unauthorized!" });
+    return res.status(StatusCodesEnum.unauthorized).send({ error: "Unauthorized!" });
   }
 };
 
