@@ -6,16 +6,14 @@ const Users = sequelize.define(
   "users",
   {
     id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
     username: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-            isAlphanumeric: true
-        }
+        unique: true
     },
     password: {
         type: DataTypes.STRING,
@@ -29,8 +27,8 @@ const Users = sequelize.define(
         }
     },
     role:{
-        type: DataTypes.ENUM,
-        values: Object.values(UserRolesEnum),
+        type: DataTypes.STRING,
+        allowNull: false
     }
 
   },

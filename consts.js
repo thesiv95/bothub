@@ -1,4 +1,4 @@
-export const StatusCodes = Object.freeze({
+export const StatusCodesEnum = Object.freeze({
   ok: 200,
   created: 201,
   deleted: 204,

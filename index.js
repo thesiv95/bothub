@@ -5,7 +5,7 @@ import morgan from "morgan";
 import config from "./config.js";
 import routes from "./routes/index.js";
 import sequelize from "./db.js";
-import { StatusCodes } from "./consts.js";
+import { StatusCodesEnum } from "./consts.js";
 
 Object.keys(config).forEach((element) => {
   assert.ok(element, "Please check your config");
@@ -21,7 +21,7 @@ app.use(morgan("dev"));
 app.use("/books", routes.booksRouter);
 app.use("/users", routes.userRouter);
 app.use("*", (_req, res) =>
-  res.status(StatusCodes.notFound).send({ error: "Page not found" })
+  res.status(StatusCodesEnum.notFound).send({ error: "Page not found" })
 );
 
 sequelize

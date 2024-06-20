@@ -6,31 +6,25 @@ const Books = sequelize.define(
   "books",
   {
     id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
     title: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        isAlphanumeric: true,
-      },
     },
     author: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        isAlphanumeric: true,
-      },
     },
     publicationDate: {
       type: DataTypes.DATE,
       allowNull: false,
     },
-    genres: {
-      type: DataTypes.ENUM,
-      values: Object.values(GenresEnum),
+    genres: { 
+      type: DataTypes.STRING,      
+      allowNull: false,
     },
   },
   { timestamps: true }
